@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosa do Deserto SG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+        body{background:#fafafa;color:#333;}
+        header{display:flex;justify-content:space-between;align-items:center;padding:20px 10%;background:white;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
+        .logo{font-size:24px;font-weight:600;color:#b71c52;white-space:nowrap;}
+        nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500;font-size:15px;transition:0.3s;}
+        nav a:hover{color:#b71c52;}
+        section{padding:90px 10%;}
+        h2{font-size:34px;margin-bottom:15px;}
+        .btn{display:inline-block;padding:16px 38px;border-radius:40px;text-decoration:none;color:white;background:#c2185b;font-weight:600;margin-top:20px;transition:0.3s;box-shadow:0 4px 15px rgba(194, 24, 91, 0.3);border:none;cursor:pointer;}
+        .btn:hover{background:#9e1748;transform:translateY(-2px);}
+        .container-gps{text-align:center;width:100%;margin-top:20px;}
+        .btn-gps{background:transparent;color:#4285F4;border:2px solid #4285F4;box-shadow:none;display:inline-flex;align-items:center;gap:10px;padding:12px 30px;}
+        .btn-gps:hover{background:#4285F4;color:white;transform:translateY(-2px);}
+        .hero{height:85vh;display:flex;align-items:center;justify-content:flex-start;text-align:left;color:white;position:relative;overflow:hidden;}
+        .hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("imagens/catalogo.webp");background-size:cover;background-position:center;z-index:1;animation:zoomLento 25s infinite alternate ease-in-out;}
+        .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,rgba(45,10,22,0.7),rgba(0,0,0,0.2));z-index:2;}
+        .hero-content{position:relative;z-index:3;max-width:550px;}
+        .hero p{font-family:'Playfair Display',serif;font-size:42px;line-height:1.2;font-weight:500;font-style:italic;opacity:0.98;animation:fadeInUp 1s ease-out;}
+        .envio-badge{display:inline-flex;align-items:center;gap:10px;margin-top:25px;padding:10px 18px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;font-size:14px;color:rgba(255,255,255,0.8);opacity:0;animation:fadeInUpBadge 1s ease-out 0.8s forwards;}
+        .envio-badge span{width:8px;height:8px;background-color:#4CAF50;border-radius:50%;animation:pulse 1.5s infinite;}
+        @keyframes zoomLento{0%{transform:scale(1);}100%{transform:scale(1.12);}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+        @keyframes fadeInUpBadge{from{opacity:0;transform:translateY(20px);}to{opacity:0.8;transform:translateY(0);}}
+        @keyframes pulse{0%{transform:scale(0.95);box-shadow:0 0 0 0 rgba(76,175,80,0.7);}70%{transform:scale(1);box-shadow:0 0 0 6px rgba(76,175,80,0);}100%{transform:scale(0.95);box-shadow:0 0 0 0 rgba(76,175,80,0);}}
+        .map{width:100%;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);}
+        .map iframe{width:100%;height:400px;border:0;display:block;}
+        .catalogo{background-image:url("imagens/catalogosuave.webp");background-size:cover;background-position:center;text-align:center;position:relative;}
+        .instagram{position:relative;text-align:center;background-image:url("imagens/insta.webp");background-size:cover;background-position:center;min-height:450px;display:flex;align-items:center;justify-content:center;color:white;}
+        .instagram::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:1;}
+        .instagram-content{position:relative;z-index:2;padding:20px;}
+        .instagram h2{color:white!important;text-shadow:0 2px 10px rgba(0,0,0,0.5);font-size:28px;max-width:800px;margin:0 auto 20px;}
+        .avaliacoes{background:#e1bee7;text-align:center;}
+        .avaliacoes h2{font-family:'Playfair Display',serif;font-weight:500;font-style:italic;color:#4a148c;letter-spacing:0.5px;}
+        .avaliacao{margin-top:20px;padding:25px;background:white;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.05);}
+        .horario{background:#fff3f7;padding:25px;border-radius:10px;margin-top:25px;border-left:5px solid #c2185b;}
+        .sobre{background-image:url("imagens/chegada1.webp");background-size:cover;background-position:center;color:white;position:relative;}
+        .sobre::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1;}
+        .sobre h2,.sobre p{position:relative;z-index:2;}
+        .whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:white;padding:16px 22px;border-radius:50px;text-decoration:none;font-weight:bold;z-index:100;}
+        footer{background:#111;color:white;text-align:center;padding:25px;}
+        @media (max-width:768px){header{flex-direction:column;padding:15px 5%;}nav{margin-top:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}nav a{margin:0 5px;font-size:13px;}.hero{text-align:center;justify-content:center;height:75vh;}.hero p{font-size:28px;}.instagram h2{font-size:22px;}section{padding:60px 5%;}}
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">Rosa do Deserto SG</div>
+    <nav>
+        <a href="#contato">Contato</a><a href="#catalogo">Catálogo</a><a href="#instagram">Instagram</a><a href="#avaliacoes">Avaliações</a><a href="#localizacao">Localização</a><a href="#sobre">Sobre Nós</a>
+    </nav>
+</header>
+<section id="contato" class="hero">
+    <div class="hero-content">
+        <p>A beleza única da Rosa do Deserto, direto do produtor.</p>
+        <div class="envio-badge"><span></span>Enviamos com segurança para todo o Brasil</div>
+        <br>
+        <a class="btn" href="https://wa.me/5521991407571?text=Olá!%20Vim%20pelo%20site%20da+Rosa+do+Deserto+SG+e+gostaria+de+ver+as+rosas+do+deserto+disponíveis.">Comprar pelo WhatsApp</a>
+    </div>
+</section>
+<section id="catalogo" class="catalogo">
+    <h2>Catálogo Online</h2>
+    <p>Confira as cores e variedades disponíveis para pronta entrega e envio.</p>
+    <a class="btn" href="https://rosadodesertosg.kyte.site/pt-BR">Abrir Catálogo</a>
+</section>
+<section id="instagram" class="instagram">
+    <div class="instagram-content">
+        <h2>Acompanhe nosso trabalho e fique por dentro das novidades!</h2>
+        <a class="btn" href="https://instagram.com/rosadodesertosg">Abrir Instagram</a>
+    </div>
+</section>
+<section id="avaliacoes" class="avaliacoes">
+    <h2>O que nossos clientes dizem</h2>
+    <div class="avaliacao">⭐️⭐️⭐️⭐️⭐️ “Plantas lindas e atendimento excelente.”</div>
+    <div class="avaliacao">⭐️⭐️⭐️⭐️⭐️ “Muita variedade de rosas do deserto.”</div>
+    <a class="btn" href="https://www.google.com/search?q=rosa+do+deserto+sg#lrd=0x9991c2d0c0905d:0x8f008fa90f388b74,1">Ver avaliações no Google</a>
+</section>
+<section id="localizacao">
+    <h2>Localização</h2>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.200388274351!2d-43.0132338!3d-22.8320498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9991c2d0c0905d%3A0x8f008fa90f388b74!2sRosa%20do%20Deserto%20SG!5e0!3m2!1spt-BR!2sbr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="container-gps">
+        <a class="btn btn-gps" href="https://maps.app.goo.gl/uP6Z8Xo4WpQ6fFf67">
+            📍 Abrir no GPS (Como Chegar)
+        </a>
+    </div>
+    <p style="margin-top:20px">
+        <strong>Endereço:</strong><br>Avenida Santa Luiza, 144 fundos<br>Santa Luzia – São Gonçalo – RJ<br><br>
+        No seu GPS coloque:<br>Rua Artur Costa, 50 – Santa Luzia
+    </p>
+    <div class="horario">
+        <strong>Horário de funcionamento</strong><br><br>
+        O viveiro abre apenas às <strong>TERÇAS, QUINTAS e SÁBADOS</strong><br>Das <strong>08:30 às 14:30h</strong>
+    </div>
+</section>
+<section id="sobre" class="sobre">
+    <h2>Sobre Nós</h2>
+    <p>A Rosa do Deserto SG é um viveiro especializado na produção e venda de rosas do deserto com grande variedade de cores e formas, desde 2017.<br><br>Atendemos clientes presencialmente em São Gonçalo e também enviamos para todo o Brasil.</p>
+</section>
+<a class="whatsapp" href="https://wa.me/5521991407571?text=Olá!%20Vim%20pelo%20site%20da+Rosa+do+Deserto+SG+e+gostaria+de+ver+as+rosas+do+deserto+disponíveis.">WhatsApp</a>
+<footer>© Rosa do Deserto SG</footer>
+<script>
+    document.querySelectorAll("nav a").forEach(link=>{
+        link.addEventListener("click",function(e){
+            if(this.getAttribute("href").startsWith("#")){e.preventDefault();document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"})}
+        })
+    })
+</script>
+</body></html>
