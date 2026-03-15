@@ -1,114 +1,191 @@
 <!DOCTYPE html><html lang="pt-br">
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KRG5ZSKJ');</script>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa do Deserto SG</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
-        body{background:#fafafa;color:#333;}
+        body{background:#fafafa;color:#333;overflow-x:hidden;}
         header{display:flex;justify-content:space-between;align-items:center;padding:20px 10%;background:white;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
         .logo{font-size:24px;font-weight:600;color:#b71c52;white-space:nowrap;}
         nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500;font-size:15px;transition:0.3s;}
         nav a:hover{color:#b71c52;}
         section{padding:90px 10%;}
-        h2{font-size:34px;margin-bottom:15px;}
-        .btn{display:inline-block;padding:16px 38px;border-radius:40px;text-decoration:none;color:white;background:#c2185b;font-weight:600;margin-top:20px;transition:0.3s;box-shadow:0 4px 15px rgba(194, 24, 91, 0.3);border:none;cursor:pointer;}
+        h2{font-size:34px;margin-bottom:20px;font-family:'Playfair Display',serif;font-style:italic;text-align:center;}
+        
+        .btn{display:inline-block;padding:16px 38px;border-radius:40px;text-decoration:none;color:white;background:#c2185b;font-weight:600;margin-top:20px;transition:0.3s;box-shadow:0 4px 15px rgba(194, 24, 91, 0.3);border:none;cursor:pointer;text-align:center;}
         .btn:hover{background:#9e1748;transform:translateY(-2px);}
-        .container-gps{text-align:center;width:100%;margin-top:20px;}
-        .btn-gps{background:transparent;color:#4285F4;border:2px solid #4285F4;box-shadow:none;display:inline-flex;align-items:center;gap:10px;padding:12px 30px;}
-        .btn-gps:hover{background:#4285F4;color:white;transform:translateY(-2px);}
+
+        /* Hero */
         .hero{height:85vh;display:flex;align-items:center;justify-content:flex-start;text-align:left;color:white;position:relative;overflow:hidden;}
         .hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("imagens/catalogo.webp");background-size:cover;background-position:center;z-index:1;animation:zoomLento 25s infinite alternate ease-in-out;}
         .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,rgba(45,10,22,0.7),rgba(0,0,0,0.2));z-index:2;}
         .hero-content{position:relative;z-index:3;max-width:550px;}
         .hero p{font-family:'Playfair Display',serif;font-size:42px;line-height:1.2;font-weight:500;font-style:italic;opacity:0.98;animation:fadeInUp 1s ease-out;}
-        .envio-badge{display:inline-flex;align-items:center;gap:10px;margin-top:25px;padding:10px 18px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;font-size:14px;color:rgba(255,255,255,0.8);opacity:0;animation:fadeInUpBadge 1s ease-out 0.8s forwards;}
-        .envio-badge span{width:8px;height:8px;background-color:#4CAF50;border-radius:50%;animation:pulse 1.5s infinite;}
         @keyframes zoomLento{0%{transform:scale(1);}100%{transform:scale(1.12);}}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-        @keyframes fadeInUpBadge{from{opacity:0;transform:translateY(20px);}to{opacity:0.8;transform:translateY(0);}}
-        @keyframes pulse{0%{transform:scale(0.95);box-shadow:0 0 0 0 rgba(76,175,80,0.7);}70%{transform:scale(1);box-shadow:0 0 0 6px rgba(76,175,80,0);}100%{transform:scale(0.95);box-shadow:0 0 0 0 rgba(76,175,80,0);}}
-        .map{width:100%;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);}
-        .map iframe{width:100%;height:400px;border:0;display:block;}
-        .catalogo{background-image:url("imagens/catalogosuave.webp");background-size:cover;background-position:center;text-align:center;position:relative;}
+
+        /* Seção Entrega */
+        .entregas{background-image:url("imagens/catalogosuave.webp");background-size:cover;background-position:center;color:white;position:relative;text-align:center;}
+        .entregas::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(45, 10, 22, 0.85);z-index:1;}
+        .entregas-content{position:relative;z-index:2;}
+        .delivery-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:30px;}
+        .delivery-card{background:rgba(255,255,255,0.1);padding:30px;border-radius:15px;border:1px solid rgba(255,255,255,0.2);flex:1;min-width:280px;max-width:350px;}
+
+        /* Catálogo */
+        .catalogo{background-image:url("imagens/catalogonova.webp");background-size:cover;background-position:center;text-align:center;position:relative;color:white;}
+        .catalogo::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1;}
+        .catalogo-content{position:relative;z-index:2;}
+
+        /* Instagram */
         .instagram{position:relative;text-align:center;background-image:url("imagens/insta.webp");background-size:cover;background-position:center;min-height:450px;display:flex;align-items:center;justify-content:center;color:white;}
         .instagram::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:1;}
-        .instagram-content{position:relative;z-index:2;padding:20px;}
-        .instagram h2{color:white!important;text-shadow:0 2px 10px rgba(0,0,0,0.5);font-size:28px;max-width:800px;margin:0 auto 20px;}
-        .avaliacoes{background:#e1bee7;text-align:center;}
-        .avaliacoes h2{font-family:'Playfair Display',serif;font-weight:500;font-style:italic;color:#4a148c;letter-spacing:0.5px;}
-        .avaliacao{margin-top:20px;padding:25px;background:white;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.05);}
-        .horario{background:#fff3f7;padding:25px;border-radius:10px;margin-top:25px;border-left:5px solid #c2185b;}
-        .sobre{background-image:url("imagens/chegada1.webp");background-size:cover;background-position:center;color:white;position:relative;}
+        .instagram-content{position:relative;z-index:2;}
+
+        /* Avaliações Clássicas */
+        .avaliacoes{background:#f3e5f5;text-align:center;}
+        .carousel-container{max-width:800px;margin:30px auto;overflow:hidden;}
+        .carousel-track{display:flex;transition:transform 0.5s ease;gap:20px;}
+        .avaliacao-card{min-width:100%;padding:40px;background:white;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);font-family:'Playfair Display',serif;font-style:italic;color:#4a148c;}
+
+        /* Localização e Endereço (Alinhado à Esquerda) */
+        .map{width:100%;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);}
+        .map iframe{width:100%;height:400px;border:0;display:block;}
+        .btn-gps{background:transparent;color:#4285F4;border:2px solid #4285F4;display:inline-flex;align-items:center;gap:10px;padding:12px 30px; text-decoration: none; border-radius: 40px; font-weight: 600; transition: 0.3s;}
+        .btn-gps:hover{background:#4285F4; color: white;}
+        .endereco-texto{margin-top:20px; text-align: left;}
+        .horario{background:#fff3f7;padding:25px;border-radius:10px;margin-top:25px;border-left:5px solid #c2185b; text-align: left;}
+
+        /* Sobre Nós (Alinhado à Esquerda) */
+        .sobre{background-image:url("imagens/chegada1.webp");background-size:cover;background-position:center;color:white;position:relative; text-align: left;}
         .sobre::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1;}
-        .sobre h2,.sobre p{position:relative;z-index:2;}
-        .whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:white;padding:16px 22px;border-radius:50px;text-decoration:none;font-weight:bold;z-index:100;}
-        footer{background:#111;color:white;text-align:center;padding:25px;}
-        @media (max-width:768px){header{flex-direction:column;padding:15px 5%;}nav{margin-top:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}nav a{margin:0 5px;font-size:13px;}.hero{text-align:center;justify-content:center;height:75vh;}.hero p{font-size:28px;}.instagram h2{font-size:22px;}section{padding:60px 5%;}}
+        .sobre-content{position:relative;z-index:2;}
+
+        /* WhatsApp e Balão */
+        .wa-wrapper{position:fixed;bottom:25px;right:25px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;}
+        .wa-tooltip{background:white;padding:10px 18px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);margin-bottom:10px;font-size:14px;font-weight:600;color:#333;position:relative;animation:bounce 2s infinite;}
+        .wa-tooltip::after{content:"";position:absolute;bottom:-8px;right:20px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid white;}
+        .whatsapp{background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:30px;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+
+        @keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0);}40%{transform:translateY(-7px);}60%{transform:translateY(-3px);}}
+        @media (max-width:768px){header{flex-direction:column;padding:15px 5%;}nav{margin-top:15px;display:flex;flex-wrap:wrap;justify-content:center;}section{padding:60px 5%;}.hero p{font-size:28px;}}
     </style>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRG5ZSKJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 <header>
     <div class="logo">Rosa do Deserto SG</div>
     <nav>
-        <a href="#contato">Contato</a><a href="#catalogo">Catálogo</a><a href="#instagram">Instagram</a><a href="#avaliacoes">Avaliações</a><a href="#localizacao">Localização</a><a href="#sobre">Sobre Nós</a>
+        <a href="#entregas">Entregas</a><a href="#catalogo">Catálogo</a><a href="#instagram">Instagram</a><a href="#avaliacoes">Avaliações</a><a href="#localizacao">Localização</a><a href="#sobre">Sobre Nós</a>
     </nav>
 </header>
-<section id="contato" class="hero">
+
+<section id="inicio" class="hero">
     <div class="hero-content">
         <p>A beleza única da Rosa do Deserto, direto do produtor.</p>
-        <div class="envio-badge"><span></span>Enviamos com segurança para todo o Brasil</div>
-        <br>
-        <a class="btn" href="https://wa.me/5521991407571?text=Olá!%20Vim%20pelo%20site%20da+Rosa+do+Deserto+SG+e+gostaria+de+ver+as+rosas+do+deserto+disponíveis.">Comprar pelo WhatsApp</a>
+        <a class="btn" href="https://wa.me/5521991407571?text=Olá!%20Gostaria%20de%20ver%20as%20opções%20disponíveis%20no%20catálogo%20e%20tirar%20algumas%20dúvidas.">Comprar pelo WhatsApp</a>
     </div>
 </section>
-<section id="catalogo" class="catalogo">
-    <h2>Catálogo Online</h2>
-    <p>Confira as cores e variedades disponíveis para pronta entrega e envio.</p>
-    <a class="btn" href="https://rosadodesertosg.kyte.site/pt-BR">Abrir Catálogo</a>
+
+<section id="entregas" class="entregas">
+    <div class="entregas-content">
+        <h2>Como Receber sua Rosa do Deserto</h2>
+        <div class="delivery-grid">
+            <div class="delivery-card">
+                <h3>📍 Retirada Presencial</h3>
+                <p><strong>São Gonçalo:</strong> Ter, Qui e Sáb (08:30 às 14:30h).<br>Av. Santa Luiza, 144 fundos.</p>
+                <p style="margin-top:10px"><strong>Ipanema:</strong> Entregas aos sábados.</p>
+            </div>
+            <div class="delivery-card">
+                <h3>🚗 Entrega Local</h3>
+                <p>Rio e Grande Rio via Uber Flash. O cliente solicita a coleta em nosso endereço com segurança.</p>
+            </div>
+            <div class="delivery-card">
+                <h3>📦 Envio Nacional</h3>
+                <p>Despachamos via transportadora. Informe seu CEP via WhatsApp para cotação.</p>
+            </div>
+        </div>
+    </div>
 </section>
+
+<section id="catalogo" class="catalogo">
+    <div class="catalogo-content">
+        <h2>Catálogo Online</h2>
+        <p>Confira as cores e variedades disponíveis para pronta entrega.</p>
+        <a class="btn" href="https://rosadodesertosg.kyte.site/pt-BR">Abrir Catálogo</a>
+    </div>
+</section>
+
 <section id="instagram" class="instagram">
     <div class="instagram-content">
-        <h2>Acompanhe nosso trabalho e fique por dentro das novidades!</h2>
+        <h2>Acompanhe nosso trabalho e novidades!</h2>
         <a class="btn" href="https://instagram.com/rosadodesertosg">Abrir Instagram</a>
     </div>
 </section>
+
 <section id="avaliacoes" class="avaliacoes">
     <h2>O que nossos clientes dizem</h2>
-    <div class="avaliacao">⭐️⭐️⭐️⭐️⭐️ “Plantas lindas e atendimento excelente.”</div>
-    <div class="avaliacao">⭐️⭐️⭐️⭐️⭐️ “Muita variedade de rosas do deserto.”</div>
-    <a class="btn" href="https://www.google.com/search?q=rosa+do+deserto+sg#lrd=0x9991c2d0c0905d:0x8f008fa90f388b74,1">Ver avaliações no Google</a>
+    <div class="carousel-container">
+        <div class="carousel-track" id="track">
+            <div class="avaliacao-card">⭐️⭐️⭐️⭐️⭐️ “Plantas maravilhosas, muito bem cuidadas. O atendimento é nota mil!”</div>
+            <div class="avaliacao-card">⭐️⭐️⭐️⭐️⭐️ “Variedade incrível de cores. Minhas rosas chegaram perfeitas e saudáveis.”</div>
+            <div class="avaliacao-card">⭐️⭐️⭐️⭐️⭐️ “O viveiro em São Gonçalo é lindo. Super recomendo a visita!”</div>
+        </div>
+    </div>
+    <a class="btn" href="https://www.google.com/search?q=rosa+do+deserto+sg#lrd=0x9991c2d0c0905d:0x8f008fa90f388b74,1">Ver no Google</a>
 </section>
+
 <section id="localizacao">
     <h2>Localização</h2>
     <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.200388274351!2d-43.0132338!3d-22.8320498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9991c2d0c0905d%3A0x8f008fa90f388b74!2sRosa%20do%20Deserto%20SG!5e0!3m2!1spt-BR!2sbr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.2008740523455!2d-43.0315729!3d-22.8320498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9991c2d0c0905d%3A0x8f008fa90f388b74!2sRosa%20do%20Deserto%20SG!5e0!3m2!1spt-BR!2sbr!4v1710500000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
     </div>
-    <div class="container-gps">
-        <a class="btn btn-gps" href="https://maps.app.goo.gl/uP6Z8Xo4WpQ6fFf67">
-            📍 Abrir no GPS (Como Chegar)
-        </a>
+    <div style="text-align:center; margin-top:20px;">
+        <a class="btn-gps" href="https://www.google.com/maps/dir/?api=1&destination=Rosa+do+Deserto+SG" target="_blank">📍 Abrir no GPS (Como Chegar)</a>
     </div>
-    <p style="margin-top:20px">
-        <strong>Endereço:</strong><br>Avenida Santa Luiza, 144 fundos<br>Santa Luzia – São Gonçalo – RJ<br><br>
-        No seu GPS coloque:<br>Rua Artur Costa, 50 – Santa Luzia
-    </p>
+    <div class="endereco-texto">
+        <p><strong>Endereço:</strong> Avenida Santa Luiza, 144 fundos - Santa Luzia – São Gonçalo – RJ</p>
+        <p style="margin-top:10px;"><em>No seu GPS coloque: Rua Artur Costa, 50 – Santa Luzia</em></p>
+    </div>
     <div class="horario">
-        <strong>Horário de funcionamento</strong><br><br>
+        <strong>Horário de funcionamento:</strong><br><br>
         O viveiro abre apenas às <strong>TERÇAS, QUINTAS e SÁBADOS</strong><br>Das <strong>08:30 às 14:30h</strong>
     </div>
 </section>
+
 <section id="sobre" class="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Rosa do Deserto SG é um viveiro especializado na produção e venda de rosas do deserto com grande variedade de cores e formas, desde 2017.<br><br>Atendemos clientes presencialmente em São Gonçalo e também enviamos para todo o Brasil.</p>
+    <div class="sobre-content">
+        <h2>Sobre Nós</h2>
+        <p>A Rosa do Deserto SG é um viveiro especializado na produção e venda de rosas do deserto com grande variedade de cores e formas, desde 2017.<br><br>Atendemos clientes presencialmente em São Gonçalo e também enviamos para todo o Brasil.</p>
+    </div>
 </section>
-<a class="whatsapp" href="https://wa.me/5521991407571?text=Olá!%20Vim%20pelo%20site%20da+Rosa+do+Deserto+SG+e+gostaria+de+ver+as+rosas+do+deserto+disponíveis.">WhatsApp</a>
+
+<div class="wa-wrapper">
+    <div class="wa-tooltip">Tire suas dúvidas e peça seu orçamento aqui</div>
+    <a class="whatsapp" href="https://wa.me/5521991407571?text=Olá!%20Gostaria%20de%20ver%20as%20opções%20disponíveis%20no%20catálogo%20e%20tirar%20algumas%20dúvidas.">
+        <svg viewBox="0 0 448 512" width="30" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
+</div>
+
 <footer>© Rosa do Deserto SG</footer>
+
 <script>
     document.querySelectorAll("nav a").forEach(link=>{
         link.addEventListener("click",function(e){
             if(this.getAttribute("href").startsWith("#")){e.preventDefault();document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"})}
         })
-    })
+    });
+    let idx = 0;
+    const track = document.getElementById('track');
+    setInterval(() => {
+        idx = (idx + 1) % 3;
+        track.style.transform = `translateX(-${idx * 105}%)`;
+    }, 4500);
 </script>
 </body></html>
